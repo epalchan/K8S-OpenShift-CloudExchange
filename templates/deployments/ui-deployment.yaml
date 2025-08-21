@@ -130,6 +130,14 @@ spec:
                       values:
                         - ui
                 topologyKey: topology.kubernetes.io/zone
+      {{- with .Values.ui.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.ui.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       restartPolicy: Always
       serviceAccount: {{ include "serviceAccountName.name" . }}
       volumes:

@@ -372,6 +372,8 @@ core:
     ## @param core.auth.jwtToken JWT Token
     ##
     jwtToken: ""
+  nodeSelector: {}
+  tolerations: []
 ## UI Params
 ##
 ui:
@@ -448,4 +450,5 @@ ui:
     ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
     ##
     allowPrivilegeEscalation: false
-
+  nodeSelector: {}
+  tolerations: []

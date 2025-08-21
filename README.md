@@ -185,6 +185,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `core.secrets.caCertificate.name` | Name of the CA Certificate secret                                            |`"netskope-ce-ca-certificate-secret"` | No         |
 | `core.workerConcurrency` | Set concurrency horizontal scaling                                            |`3` | No         |
 | `core.rabbitmqAvailableStorage` | Rabbitmq available storage                                           |`40` | No         |
+| `core.tolerations` | List of tolerations                                                     |`{}` | No         |
+| `core.nodeSelector` | Map of selectors                                                     |`[]` | No         |
 
 
 > Note: If the `core.caCertificate` attribute is enabled (Default: false) then the CA certificate should be present in the `ca-certificates` directory with the `ca.pem` file name.
@@ -204,6 +206,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `ui.securityContext.allowPrivilegeEscalation` | Enable privilege escalation, it should be true if privileged is set to true.         | `false`         | No          |
 | `ui.secrets.create` |  Enable to create UI secret                                                                 | `true`          | No         |
 | `ui.secrets.name` | Name of the UI secret                                                     |`"netskope-ce-ui-secret"` | No         |
+| `ui.tolerations` | List of tolerations                                                     |`{}` | No         |
+| `ui.nodeSelector` | Map of selectors                                                     |`[]` | No         |
 
 > Note: If you enable `ui.ssl` certificates (Default: false), your SSL certificates and certificate & certificate private key (with the respective names `cte_cert.key` and `cte_cert_key.key`) must be present in the certificates directory at the root.
 
