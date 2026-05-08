@@ -80,6 +80,10 @@ spec:
                         name: {{ .Values.rabbitmq.secrets.name }}
                   - name: RABBITMQ_DISK_FREE_LIMIT_ABSOLUTE
                     value: "1"
+            {{- with .Values.rabbitmq.nodeSelector }}
+            nodeSelector:
+              {{- toYaml . | nindent 14 }}
+            {{- end }}
   image: {{ .Values.rabbitmq.image }}
   replicas: {{ .Values.rabbitmq.replicaCount }}
   resources: {{- toYaml .Values.rabbitmq.resources | nindent 4 }}
@@ -94,3 +98,7 @@ spec:
       vm_memory_high_watermark_paging_ratio = 0.60
       vm_memory_high_watermark.relative = 0.80
       cluster_partition_handling = autoheal
+  {{- with .Values.rabbitmq.tolerations }}
+  tolerations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}

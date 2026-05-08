@@ -148,6 +148,8 @@ mongodb:
   ## ref: https://www.mongodb.com/docs/mongodb-shell/telemetry/ 
   ##  
   disableTelemetry: true
+  nodeSelector: {}
+  tolerations: []
 ## RabbitMQ Params (For Stats and Disc both)
 ##
 rabbitmq:
@@ -227,6 +229,8 @@ rabbitmq:
     ## @param rabbitmq.auth.rabbitmqDefaultPassword RabbitMQ password
     ##
     rabbitmqDefaultPassword: ""
+  nodeSelector: {}
+  tolerations: []
 ## Core Params
 ##
 core:

@@ -102,6 +102,14 @@ spec:
                   drop:
                     - ALL
             {{- end }}
+          {{- with .Values.mongodb.nodeSelector }}
+          nodeSelector:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.mongodb.tolerations }}
+          tolerations:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           containers:
             - name: mongod
               env:
